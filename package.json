@@ -3,18 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "create-react-class": "^15.7.0",
+    "font-awesome": "^4.7.0",
+    "lodash.shuffle": "^4.2.0",
+    "prop-types": "^15.7.2",
+    "react-card-flip": "^1.0.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "nw-react-scripts": "3.4.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-flipcard": "^0.2.1",
+    "react-prop-types": "^0.4.0"
   },
   "scripts": {
     "start": "nw-react-scripts start",
     "build": "nw-react-scripts build",
     "test": "nw-react-scripts test",
-    "eject": "nw-react-scripts eject"
+    "eject": "nw-react-scripts eject",
+    "dist": "build --tasks win-x86,win-x64,linux-x86,linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
+    "dev": "nw src /",
+    "prod": "nwbuild --platforms win32, win64, osx64, linux32, linux64 --buildDir dist/ src/"
   },
   "eslintConfig": {
     "extends": "nw-react-app"
@@ -35,14 +45,16 @@
   "nwBuilder": {
     "//": "https://github.com/nwjs-community/nw-builder",
     "platforms": [
-      "osx64",
       "win32",
       "win64"
     ],
     "version": "latest",
     "flavor": "normal",
-    "buildDir": "./build",
+    "buildDir": "./build/",
     "cacheDir": "./cache",
     "macIcns": "./src/logo.icns"
+  },
+  "devDependencies": {
+    "nwjs-builder-phoenix": "^1.15.0"
   }
 }
